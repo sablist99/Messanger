@@ -24,8 +24,7 @@ namespace Messanger
             {
                 if (client.Id != id)
                 {
-                    await client.Writer.WriteLineAsync(message);
-                    await client.Writer.FlushAsync();
+                    await client.SendMessage(message);
                 }
             }
         }

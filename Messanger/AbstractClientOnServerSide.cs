@@ -5,8 +5,8 @@ namespace Messanger
     public abstract class AbstractClientOnServerSide
     {
         public Guid Id { get; }
-        public StreamWriter Writer { get; }
-        public StreamReader Reader { get; }
+        protected StreamWriter Writer { get; }
+        protected StreamReader Reader { get; }
 
         protected TcpClient client { get; }
         protected AbstractServer server { get; }
@@ -19,6 +19,12 @@ namespace Messanger
             var stream = client.GetStream();
             Reader = new StreamReader(stream);
             Writer = new StreamWriter(stream);
+        }
+
+        public async Task SendMessage(string message)
+        {
+            await Writer.WriteLineAsync(message);
+            await Writer.FlushAsync();
         }
 
         public abstract Task ProcessAsync();
