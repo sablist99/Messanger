@@ -13,6 +13,7 @@ namespace Messanger
 
         public AbstractClientOnServerSide(TcpClient tcpClient, AbstractServer serverObject)
         {
+            Id = Guid.NewGuid();
             client = tcpClient;
             server = serverObject;
             var stream = client.GetStream();
