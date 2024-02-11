@@ -3,9 +3,9 @@ using System.Net.Sockets;
 
 namespace ConsoleServer
 {
-    public class ClientOnServerSideObject : AbstractClientOnServerSide
+    public class ConsoleClientOnServerSide : AbstractClientOnServerSide
     {
-        public ClientOnServerSideObject(TcpClient tcpClient, AbstractServer serverObject) : base(tcpClient, serverObject) { }
+        public ConsoleClientOnServerSide(TcpClient tcpClient, AbstractServer serverObject) : base(tcpClient, serverObject) { }
 
         public override async Task ProcessAsync()
         {

@@ -3,7 +3,7 @@ using System.Net.Sockets;
 
 namespace ConsoleClient
 {
-    public class Client : IClient
+    public class ConsoleClient : IClient
     {
         private readonly string? userName;
         private const string host = "127.0.0.1";
@@ -12,7 +12,7 @@ namespace ConsoleClient
         public StreamReader? Reader { get; }
         public StreamWriter? Writer { get; }
 
-        public Client()
+        public ConsoleClient()
         {
             using TcpClient client = new TcpClient();
             Console.Write("Введите свое имя: ");

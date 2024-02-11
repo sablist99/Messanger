@@ -4,9 +4,9 @@ using System.Net.Sockets;
 
 namespace ConsoleServer
 {
-    public class ServerObject : AbstractServer
+    public class ConsoleServer : AbstractServer
     {
-        public ServerObject()
+        public ConsoleServer()
         {
             tcpListener = new TcpListener(IPAddress.Any, 8888); ;
             clients = new List<AbstractClientOnServerSide>();
@@ -23,7 +23,7 @@ namespace ConsoleServer
                 {
                     TcpClient tcpClient = await tcpListener.AcceptTcpClientAsync();
 
-                    ClientOnServerSideObject clientObject = new(tcpClient, this);
+                    ConsoleClientOnServerSide clientObject = new(tcpClient, this);
                     clients.Add(clientObject);
                     Task.Run(clientObject.ProcessAsync);
                 }
